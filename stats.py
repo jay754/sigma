@@ -4,6 +4,8 @@ Simple Python standard Deviation, variance, and mean calculator
 
 Tested using randomly generated data
 
+Using the The Sample Standard Deviation (still not much difference in the standard deviation if the sample size if big)
+
 """
 
 from random import randint
@@ -49,7 +51,7 @@ def variance():
 
     """
 
-    return sum(map(lambda x: x ** 2, [i-mean() for i in randomNumbers()]))/len(randomNumbers())
+    return sum(map(lambda x: x ** 2, [i-mean() for i in randomNumbers()]))/(len(randomNumbers())-1)
 
 def standardDeviation():
     """
