@@ -14,10 +14,7 @@ import math
 
 class stdPy(object):
 
-    def randomNumbers(self):
-        """
-        randomly generated data
-        """
+    def __init__(self):
 
         size = os.stat('numbers.txt').st_size #size of the file to make sure that it isn't filled already
 
@@ -28,23 +25,21 @@ class stdPy(object):
                 fileOBJ.write(str(i)+'\n')
         else:
             filereadOBJ = open('numbers.txt', 'r')
-            data = [int(i) for i in filereadOBJ]
-        
-        return data
+            self.data = [int(i) for i in filereadOBJ]
 
     def mean(self):
         """
         returns the mean/average of the sample data
         """
 
-        return (sum(self.randomNumbers()))/(len(self.randomNumbers()))
+        return (sum(self.data))/(len(self.data))
 
     def variance(self):
         """
         returns the variance of the sample data
         """
 
-        return sum(map(lambda x: x ** 2, [i-self.mean() for i in self.randomNumbers()]))/(len(self.randomNumbers())-1)
+        return sum(map(lambda x: x ** 2, [i-self.mean() for i in self.data]))/(len(self.data)-1)
 
     def standardDeviation(self):
         """
@@ -67,4 +62,4 @@ class stdPy(object):
             if i > upperBound or i < lowerBound:
                 numsNotInSTD.append(i)
 
-        return float(len(numsNotInSTD))/float(len(self.randomNumbers()))*100
+        return float(len(numsNotInSTD))/float(len(self.data))*100
