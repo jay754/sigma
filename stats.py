@@ -27,6 +27,12 @@ class stdPy(object):
             filereadOBJ = open('numbers.txt', 'r')
             self.data = [int(i) for i in filereadOBJ]
 
+    def __data__(self):
+        """
+        returns the data
+        """
+        return self.data
+
     def mean(self):
         """
         returns the mean/average of the sample data
